@@ -1,0 +1,10 @@
+def player_input():
+    marker=''
+    while marker!='X' and marker!='O':
+        marker=input('Player 1: Choose X or O ')
+    if marker=='X':
+        return('X','O')
+    else:
+        return('O','X')
+        
+player1_marker, player2_marker=player_input()        
