@@ -1,0 +1,74 @@
+#While loop to keep running the game
+print('Welcome to Tic Tac Toe')
+
+while True:
+    
+    #Play the game
+    #Set everything up(board, who is first, choose markers (X,O)
+    the_board=['']*10
+    player1_marker,player2_marker=player_input()
+    
+    turn= choose_first()
+    print(turn + 'will go first')
+    
+    play_game= input('Ready to play? Y or N?')
+    
+    if play_game=='Y':
+        game_on= True
+    else:
+        game_on=False
+        
+    #game play
+    while game_on:
+        if turn=='Player 1':
+            #show board
+            display_board(the_board)
+            
+            #choose a position
+            position=player_choice(the_board)
+            
+            #place the marker on the position
+            place_marker(the_board,player1_marker,position)
+            
+            #Check if they win
+            if win_check(the_board,player1_marker,position):
+                display_board(the_board)
+                print('Player 1 has won!')
+                game_on=False
+            else:
+                if full_board_check(the_board):
+                    display_board(the_board)
+                    print("TIE GAME")
+                    break
+                else:
+                    turn='Player 2'
+            
+            #Or check if there is a tie
+            #No win and no win? Next players turn
+            
+        else:
+            #show the board
+            display_board(the_board)
+            
+            #choose a position
+            position=player_choice(the_board)
+            
+            #place the marker on the position
+            place_marker(the_board,player2_marker,position)
+            
+            #Check if they win
+            if win_check(the_board,player2_marker,position):
+                display_board(the_board)
+                print('Player 2 has won!')
+                game_on=False
+            else:
+                if full_board_check(the_board):
+                    display_board(the_board)
+                    print("TIE GAME")
+                    break
+                else:
+                    turn='Player 1'
+    
+    #player 1 turn
+    
+    #player 2 turn
