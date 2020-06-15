@@ -1,0 +1,12 @@
+import random
+#random variables 
+def choose_first():
+    flip=random.randint(0,1)
+    if flip==0:
+        return 'Player 1'
+    else:
+        return 'Player 2'
+        
+#to check space on board
+def space_check(board,position):
+    return board(position)==''
